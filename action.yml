@@ -1,0 +1,36 @@
+---
+name: Publish Ansible Collections/Roles with Ansible Galaxy 
+description: Run ansible-galaxy to build/publish Ansible collections
+author: Sean Nelson <hyperkineticnerd@gmail.com>
+
+inputs:
+  type:
+    description: Galaxy Type, for example `collection` or `role`. Defaults to `collection`.
+    required: false
+    default: collection
+  command:
+    description: What command to pass to [`ansible-galaxy`](https://docs.ansible.com/ansible/devel/dev_guide/developing_collections_distributing.html#upload-collection-galaxy), for example `build` or `publish`. Defaults to `build`.
+    required: false
+    default: build
+  options:
+    description: Options you can pass to [`ansible-galaxy`](https://galaxy.ansible.com/docs/), for example `--parallel all`.
+    required: false
+
+runs:
+  using: docker
+  # env:
+  #   ANSIBLE_GALAXY_SERVER: private
+  #   ANSIBLE_GALAXY_SERVER_LIST: private
+  #   ANSIBLE_GALAXY_SERVER_PRIVATE_URL: https://automationhub.example.com/api/galaxy/content/private
+  #   ANSIBLE_GALAXY_SERVER_PRIVATE_TOKEN: ""
+  image: docker://quay.io/ansible/creator-ee:latest
+  entrypoint: ansible-galaxy
+  args:
+    - ${{ inputs.type }}
+    - ${{ inputs.command }}
+    - ${{ inputs.options }}
+    - ${{ vars.GITHUB_WORKSPACE }}
+
+branding:
+  icon: play
+  color: green
