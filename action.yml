@@ -29,7 +29,7 @@ runs:
     - ${{ inputs.type }}
     - ${{ inputs.command }}
     - ${{ inputs.options }}
-    - ${{ vars.GITHUB_WORKSPACE }}
+    - ${GITHUB_WORKSPACE}
 
 branding:
   icon: play
