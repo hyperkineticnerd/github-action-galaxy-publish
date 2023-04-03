@@ -31,8 +31,8 @@ runs:
   args:
    - ${{ inputs.type }}
    - ${{ inputs.command }}
-   - ${{ inputs.options }}
    - ${{ inputs.archive }}
+   - ${{ inputs.options }}
 
 branding:
   icon: play
