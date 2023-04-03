@@ -26,9 +26,7 @@ runs:
   image: docker://quay.io/ansible/creator-ee:latest
   entrypoint: ansible-galaxy
   args:
-    - ${{ inputs.type }}
-    - ${{ inputs.command }}
-    - ${{ inputs.options }}
+   - '${{ inputs.type }} ${{ inputs.command }} ${{ inputs.options }}'
 
 branding:
   icon: play
