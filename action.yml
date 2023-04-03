@@ -27,7 +27,8 @@ runs:
   entrypoint: ansible-galaxy
   args:
    - ${{ inputs.type }}
-   - '${{ inputs.command }} ${{ inputs.options }}'
+   - ${{ inputs.command }}
+   - ${{ inputs.options }}
 
 branding:
   icon: play
