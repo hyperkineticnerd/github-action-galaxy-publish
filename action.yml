@@ -11,10 +11,13 @@ inputs:
   command:
     description: What command to pass to [`ansible-galaxy`](https://docs.ansible.com/ansible/devel/dev_guide/developing_collections_distributing.html#upload-collection-galaxy), for example `build` or `publish`. Defaults to `build`.
     required: false
-    default: build
+    default: publish
   options:
     description: Options you can pass to [`ansible-galaxy`](https://galaxy.ansible.com/docs/), for example `--parallel all`.
     required: false
+  archive:
+    description: What to publish.
+    required: true
 
 runs:
   using: docker
@@ -26,10 +29,10 @@ runs:
   image: docker://quay.io/ansible/creator-ee:latest
   entrypoint: ansible-galaxy
   args:
-   - --
    - ${{ inputs.type }}
    - ${{ inputs.command }}
    - ${{ inputs.options }}
+   - ${{ inputs.archive }}
 
 branding:
   icon: play
