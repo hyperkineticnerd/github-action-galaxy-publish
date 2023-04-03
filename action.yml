@@ -27,10 +27,10 @@ runs:
   #   ANSIBLE_GALAXY_SERVER_PRIVATE_URL: https://automationhub.example.com/api/galaxy/content/private
   #   ANSIBLE_GALAXY_SERVER_PRIVATE_TOKEN: ""
   image: docker://quay.io/ansible/creator-ee:latest
-  entrypoint: ansible-galaxy
+  entrypoint: ansible-galaxy collection publish
   args:
-   - ${{ inputs.type }}
-   - ${{ inputs.command }}
+  #  - ${{ inputs.type }}
+  #  - ${{ inputs.command }}
    - ${{ inputs.options }}
    - ${{ inputs.archive }}
 
