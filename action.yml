@@ -28,7 +28,6 @@ runs:
   args:
     - ${{ inputs.type }}
     - ${{ inputs.command }}
-    - ${GITHUB_WORKSPACE}
     - ${{ inputs.options }}
 
 branding:
