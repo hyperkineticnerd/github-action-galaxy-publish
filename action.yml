@@ -28,8 +28,8 @@ runs:
   args:
     - ${{ inputs.type }}
     - ${{ inputs.command }}
-    - ${{ inputs.options }}
     - ${GITHUB_WORKSPACE}
+    - ${{ inputs.options }}
 
 branding:
   icon: play
