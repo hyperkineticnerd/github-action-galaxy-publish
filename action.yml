@@ -15,6 +15,11 @@ inputs:
   options:
     description: Options you can pass to [`ansible-galaxy`](https://galaxy.ansible.com/docs/), for example `--parallel all`.
     required: false
+  token:
+    description: Galaxy Publish Key.
+     required: true
+  galaxyserver:
+    description: Galaxy Server to Publish to.
   archive:
     description: What to publish.
     required: true
@@ -32,6 +37,8 @@ runs:
    - ${{ inputs.type }}
    - ${{ inputs.command }}
    - ${{ inputs.archive }}
+   - --token=${{ inputs.token }}
+   - --server=${{ inputs.galaxyserver }}
    - ${{ inputs.options }}
 
 branding:
