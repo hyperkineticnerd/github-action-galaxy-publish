@@ -20,6 +20,8 @@ inputs:
      required: true
   galaxyserver:
     description: Galaxy Server to Publish to.
+    required: false
+    default: https://galaxy.ansible.com/api/
   archive:
     description: What to publish.
     required: true
@@ -37,8 +39,8 @@ runs:
    - ${{ inputs.type }}
    - ${{ inputs.command }}
    - ${{ inputs.archive }}
-   - --token=${{ inputs.token }}
    - --server=${{ inputs.galaxyserver }}
+   - --token=${{ inputs.token }}
    - ${{ inputs.options }}
 
 branding:
